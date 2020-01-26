@@ -2,12 +2,13 @@ package com.felix.labs.category
 
 import data.DocumentStoreHolder
 import model.Category
-import net.ravendb.client.exceptions.RavenException
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
 
 @SpringBootApplication
 class CategoryApplication
@@ -17,24 +18,23 @@ fun main(args: Array<String>) {
 }
 
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/api/categories")
 class CategoryController {
-    private var store = DocumentStoreHolder.getStore()
+    private var store = DocumentStoreHolder.store
 
-    @GetMapping("/")
+    @GetMapping("")
     fun readAll(): MutableList<Category>? {
-        try {
-            store.openSession().also {
+        store.openSession().also {
+            return it.advanced()
+                    .documentQuery(Category::class.java)
+                    .toList()
+        }
+    }
 
-                it.store(Category("Felipe Augusto Felix", "Teste", true))
-                it.saveChanges()
-
-                return it.advanced()
-                        .documentQuery(Category::class.java)
-                        .toList()
-            }
-        } catch (ex: RavenException) {
-            throw ex
+    @GetMapping("/{id}")
+    fun readOne(@PathVariable(value = "id") id: String): Category? {
+        store.openSession().also {
+            return it.load(Category::class.java, id)
         }
     }
 }

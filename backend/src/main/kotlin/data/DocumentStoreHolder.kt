@@ -10,13 +10,13 @@ import java.security.KeyStore
 //const val RAVENDB_CERTFILE = "c:\\Users\\USUARIO\\source\\repos\\MicroservicesCourse\\laravel-app\\laravel\\backend\\certs\\ravendb.pfx"
 
 object DocumentStoreHolder {
-    private val store: DocumentStore = DocumentStore().also {
-        it.database = "Movies"
-        it.urls = arrayOf("http://localhost:8080")
-        it.initialize()
+    var store: DocumentStore = DocumentStore().apply {
+        database = "Movies"
+        urls = arrayOf("http://raspberrypi.local:8080")
+        initialize()
     }
+        private set
 
-    fun getStore(): IDocumentStore = store
     //    init {
 //        val clientStore = KeyStore.getInstance("PKCS12")
 //        clientStore.load(FileInputStream(RAVENDB_CERTFILE), RAVENDB_PASSWORD.toCharArray())
