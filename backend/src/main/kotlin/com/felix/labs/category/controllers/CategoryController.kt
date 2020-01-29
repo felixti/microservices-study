@@ -41,8 +41,9 @@ class CategoryController {
     @PutMapping("/{id}")
     fun updateOne(@PathVariable(value = "id") id: String, @RequestBody updated: Category): ResponseEntity<Category> {
         store.openSession().apply {
-            val original = load(Category::class.java, id) ?: return ResponseEntity.notFound().build()
-            original.update(updated.name, updated.description, updated.active)
+            val original = (load(Category::class.java, id) ?: return ResponseEntity.notFound().build()).also {
+                it.update(updated.name, updated.description, updated.active)
+            }
             saveChanges()
             return ResponseEntity.ok().body(original)
         }
