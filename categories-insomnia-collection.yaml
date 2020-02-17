@@ -1,0 +1,186 @@
+_type: export
+__export_format: 4
+__export_date: 2020-02-17T06:51:59.963Z
+__export_source: insomnia.desktop.app:v7.0.6
+resources:
+  - _id: req_5b6de323abe84424ae2b5e23aa55b50e
+    authentication: {}
+    body: {}
+    created: 1581905443602
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1581918408560
+    method: GET
+    modified: 1581918708317
+    name: read all
+    parameters: []
+    parentId: fld_f2d3c244205647b6b047f75fbe2b267b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ http_scheme  }}://{{ host  }}:{{ port  }}/api/categories"
+    _type: request
+  - _id: fld_f2d3c244205647b6b047f75fbe2b267b
+    created: 1581905415582
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1581905415582
+    modified: 1581905415582
+    name: Categories
+    parentId: wrk_389e1f997a454f93969b9d2c487a2bef
+    _type: request_group
+  - _id: wrk_389e1f997a454f93969b9d2c487a2bef
+    created: 1581905348701
+    description: ""
+    modified: 1581905348701
+    name: Code.Education - Microservices Course
+    parentId: null
+    _type: workspace
+  - _id: req_a7d911103c0944308661ae2d790adb67
+    authentication: {}
+    body: {}
+    created: 1581918408510
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1581918408510
+    method: GET
+    modified: 1581921090837
+    name: read one
+    parameters: []
+    parentId: fld_f2d3c244205647b6b047f75fbe2b267b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ http_scheme  }}://{{ host  }}:{{ port  }}/api/categories/{{
+      category_id  }}"
+    _type: request
+  - _id: req_1ef42f4ecb8f4e6baf36c960eb0838f7
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Felipe Augusto Felix",
+        	"description": "Test Felix",
+        	"active": true
+        }
+    created: 1581918513961
+    description: ""
+    headers:
+      - id: pair_d9801b65b7be470581dacc4d067e807a
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1581905443552
+    method: POST
+    modified: 1581918626865
+    name: create
+    parameters: []
+    parentId: fld_f2d3c244205647b6b047f75fbe2b267b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ http_scheme  }}://{{ host  }}:{{ port  }}/api/categories"
+    _type: request
+  - _id: req_19080fbd395e4773abe456e6b0efdbe1
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Felix"
+        }
+    created: 1581918667395
+    description: ""
+    headers:
+      - id: pair_b121c667d677474da717f7328fca341c
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1581905443502
+    method: PUT
+    modified: 1581921099924
+    name: update
+    parameters: []
+    parentId: fld_f2d3c244205647b6b047f75fbe2b267b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ http_scheme  }}://{{ host  }}:{{ port  }}/api/categories/{{
+      category_id  }}"
+    _type: request
+  - _id: req_e7e822f8989b44aa91fb59a68d6f7107
+    authentication: {}
+    body: {}
+    created: 1581919522350
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1581905443452
+    method: DELETE
+    modified: 1581921106791
+    name: delete
+    parameters: []
+    parentId: fld_f2d3c244205647b6b047f75fbe2b267b
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ http_scheme  }}://{{ host  }}:{{ port  }}/api/categories/{{
+      category_id  }}"
+    _type: request
+  - _id: env_0acd997151a85a2e33491d2caa4b70e6494754d0
+    color: null
+    created: 1581905348904
+    data: {}
+    dataPropertyOrder: {}
+    isPrivate: false
+    metaSortKey: 1581905348904
+    modified: 1581905380223
+    name: Base Environment
+    parentId: wrk_389e1f997a454f93969b9d2c487a2bef
+    _type: environment
+  - _id: jar_0acd997151a85a2e33491d2caa4b70e6494754d0
+    cookies: []
+    created: 1581905348927
+    modified: 1581905348927
+    name: Default Jar
+    parentId: wrk_389e1f997a454f93969b9d2c487a2bef
+    _type: cookie_jar
+  - _id: env_787d2edbb2524df88cbde4150d5bc0ad
+    color: "#5a87da"
+    created: 1581905383847
+    data:
+      category_id: 04a0f5cf-bf3c-48d2-8fab-47939da0d07d
+      host: localhost
+      http_scheme: http
+      port: 8080
+    dataPropertyOrder:
+      "&":
+        - http_scheme
+        - host
+        - port
+        - category_id
+    isPrivate: false
+    metaSortKey: 0
+    modified: 1581921146222
+    name: Development
+    parentId: env_0acd997151a85a2e33491d2caa4b70e6494754d0
+    _type: environment

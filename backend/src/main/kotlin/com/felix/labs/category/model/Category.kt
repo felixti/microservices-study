@@ -24,8 +24,8 @@ class Category {
         private set
 
     fun update(name: String, description: String, active: Boolean?) {
-        this.name    = name
-        this.description = description
-        this.active  = active
+        this.name = if (name.isEmpty()) { this.name } else { name }
+        this.description = if (description.isEmpty()) { this.description } else { description }
+        this.active  = (active ?: this.active)
     }
 }

@@ -6,7 +6,7 @@ object DocumentStoreHolder {
 
     var store: DocumentStore = DocumentStore().apply {
         database = "Movies"
-        urls = arrayOf("http://raspberrypi.local:8080")
+        urls = arrayOf("http://134.209.174.160:8080")
         initialize()
     }
         private set
